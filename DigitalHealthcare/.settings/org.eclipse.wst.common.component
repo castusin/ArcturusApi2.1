@@ -8,8 +8,10 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/CISSessions"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/CISDataCommon"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/CISCommunication"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/ReferFriendService"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/CommonCISValidation"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/ReferFriendService"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/ViewPatientStaffService"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/IncidentReportService"/>
         <property name="context-root" value="DigitalHealthcare"/>
         <property name="java-output-path" value="/DigitalHealthcare/target/classes"/>
     </wb-module>

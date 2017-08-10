@@ -61,9 +61,19 @@
 			<location>E:/GitHub/ArcturusApi2.1/CommonCISValidation/src</location>
 		</link>
 		<link>
+			<name>IncidentReportService</name>
+			<type>2</type>
+			<location>E:/GitHub/ArcturusApi2.1/IncidentReportService/src</location>
+		</link>
+		<link>
 			<name>ReferFriendService</name>
 			<type>2</type>
-			<location>E:/GitHub/ArcturusAdminApi2.1/ReferFriendService/src</location>
+			<location>E:/GitHub/ArcturusApi2.1/ReferFriendService/src</location>
+		</link>
+		<link>
+			<name>ViewPatientStaffService</name>
+			<type>2</type>
+			<location>E:/GitHub/ArcturusApi2.1/ViewPatientStaffService/src</location>
 		</link>
 	</linkedResources>
 </projectDescription>

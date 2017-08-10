@@ -19,6 +19,13 @@
  		<property name="dataSource" ref="ds" /> 
  	</bean>
  	
+ 	<bean id="ViewPatientStaff" class="com.digitalhealthcare.DigitalHealthCareViewPatientDAO"> 
+ 		<property name="dataSource" ref="ds" /> 
+ 	</bean>
+ 	
+ 	<bean id="IncidentReport" class="com.digitalhealthcare.DigitalHealthCareIncidentReportDAO"> 
+ 		<property name="dataSource" ref="ds" /> 
+ 	</bean>
  	
 	
 <!-- Development  DB connections     --> 
