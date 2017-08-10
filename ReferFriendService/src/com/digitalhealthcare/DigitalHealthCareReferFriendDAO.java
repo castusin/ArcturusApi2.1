@@ -39,6 +39,35 @@ public class DigitalHealthCareReferFriendDAO extends JdbcDaoSupport{
    		return cisResults; 
 	}
 
+	public CISResults getPatientEmail(String patientId) {
+		// TODO Auto-generated method stub
+
+
+		CISResults cisResults=new CISResults();
+		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		DigitalHealthCarePatientModel getPatientEmail=new DigitalHealthCarePatientModel();
+		Object[] inputs = new Object[]{patientId};
+		try{
+			// Capture service Start time
+			 TimeCheck time=new TimeCheck();
+			 testServiceTime sessionTimeCheck=new testServiceTime();
+			 String serviceStartTime=time.getTimeZone();
+			 DigitalHealthCarePatientModel res=(DigitalHealthCarePatientModel)getJdbcTemplate().queryForObject(DigitalHealthCareReferFriendQuery.SQL_GETPATIENTEMAIL,inputs,new DigitalHealthCarePatientMapper());
+		   	 //String emailId=getPatientEmail.getEmailId();
+			 cisResults.setResultObject(res);
+			 String serviceEndTime=time.getTimeZone();
+			 long result=sessionTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
+			 logger.info("patient email query time:: " +result);
+			
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+		
+			cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+			cisResults.setErrorMessage("Failed to get  Data");
+		}
+   		return cisResults; 
+	}
+
 
 }
 
