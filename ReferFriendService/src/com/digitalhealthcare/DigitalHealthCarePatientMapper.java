@@ -14,9 +14,9 @@ public class DigitalHealthCarePatientMapper implements RowMapper{
 		
 		DigitalHealthCarePatientModel profileModel = new DigitalHealthCarePatientModel();
 		profileModel.setEmailId(rs.getString("Email_id"));
-		/*profileModel.setFirstName(rs.getString("First_name"));
+		profileModel.setFirstName(rs.getString("First_name"));
 		profileModel.setLastName(rs.getString("Last_name"));
-		profileModel.setPhone(rs.getString("Phone_no"));*/
+		profileModel.setPhone(rs.getString("Phone_no"));
 		return profileModel;
 	}
 }

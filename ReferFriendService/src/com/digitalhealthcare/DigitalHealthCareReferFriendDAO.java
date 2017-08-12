@@ -52,7 +52,7 @@ public class DigitalHealthCareReferFriendDAO extends JdbcDaoSupport{
 			 TimeCheck time=new TimeCheck();
 			 testServiceTime sessionTimeCheck=new testServiceTime();
 			 String serviceStartTime=time.getTimeZone();
-			 DigitalHealthCarePatientModel res=(DigitalHealthCarePatientModel)getJdbcTemplate().queryForObject(DigitalHealthCareReferFriendQuery.SQL_GETPATIENTEMAIL,inputs,new DigitalHealthCarePatientsMapper());
+			 DigitalHealthCarePatientModel res=(DigitalHealthCarePatientModel)getJdbcTemplate().queryForObject(DigitalHealthCareReferFriendQuery.SQL_GETPATIENTEMAIL,inputs,new DigitalHealthCarePatientMapper());
 		   	 //String emailId=getPatientEmail.getEmailId();
 			 cisResults.setResultObject(res);
 			 String serviceEndTime=time.getTimeZone();

@@ -38,7 +38,7 @@ public class DigitalHealthCareIncidentReportDAO extends JdbcDaoSupport {
 
 	public CISResults messageTextIncident(String messageId, String aptId,
 			String patientId,String userId, String phoneNumber, String patientEmail,
-			String subject, String createDate, String messageType) {
+			String subject, String createDate, String messageType,String incidentType) {
 
 
 		CISResults cisResults=new CISResults();
@@ -51,7 +51,7 @@ public class DigitalHealthCareIncidentReportDAO extends JdbcDaoSupport {
 			 testServiceTime sessionTimeCheck=new testServiceTime();
 			 
 			 String serviceStartTime=time.getTimeZone();
-			 getJdbcTemplate().update(DigitalHealthCareIncidentReportQuery.SQL_MESSAGETEXT,messageId,aptId,patientId,userId,phoneNumber,patientEmail,subject,createDate,messageType);
+			 getJdbcTemplate().update(DigitalHealthCareIncidentReportQuery.SQL_MESSAGETEXT,messageId,aptId,patientId,userId,phoneNumber,patientEmail,subject,createDate,messageType,incidentType);
 				 String serviceEndTime=time.getTimeZone();
 			 long result=sessionTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
 			 logger.info("message query time:: " +result);
