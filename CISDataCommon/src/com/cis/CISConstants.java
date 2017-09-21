@@ -51,9 +51,11 @@ public class CISConstants {
 	public static final int totalDay1=0;
 	public static final int totalDay2=1;
 	public static final String ADMINPHONENUMBER="167846213390";
-	public static final String ADMINEMAILID="prasad9620@gmail.com";
+	public static final String ADMINEMAILID="darshan2108@gmail.com";
 	public static final String EMAILHOST="castusinfo.com";
+	public static final String PRODEMAILHOST="mathgator.com";
 	public static final String EMAILUSERNAME="arcturus@castusinfo.com";
+	public static final String PRODEMAILUSERNAME="arcturus@mathgator.com";
 	public static final String EMAILPASSWORD="arcturus";
 	public static final String PORT="25";
 	public static final String SMS_FAILED = "Sms failed to delivery ";

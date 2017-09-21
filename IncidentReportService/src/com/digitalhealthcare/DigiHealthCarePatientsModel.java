@@ -13,6 +13,7 @@ public class DigiHealthCarePatientsModel {
 	public String firstName;
 	public String lastName;
 	public String phone;
+	
 	public DigiHealthCarePatientsModel(String emailId, String firstName, String lastName, String phone ) {
 		super();
 		this.emailId = emailId;

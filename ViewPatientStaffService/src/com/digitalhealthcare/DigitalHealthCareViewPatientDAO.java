@@ -1,6 +1,8 @@
 package com.digitalhealthcare;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
 import org.springframework.dao.DataAccessException;
@@ -23,12 +25,15 @@ public class DigitalHealthCareViewPatientDAO extends JdbcDaoSupport {
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 		Logger logger = Logger.getLogger(DigitalHealthCareViewPatientDAO.class);
 		Object[] inputs = new Object[]{patientId};
+		
 		try{
 			// Capture service Start time
 			 TimeCheck time=new TimeCheck();
 			 testServiceTime sessionTimeCheck=new testServiceTime();
 			 String serviceStartTime=time.getTimeZone();
 			 List viewPatientStaff=getJdbcTemplate().query(DigitalHealthCareViewPatientQuery.SQL_VIEWPATIENTSTAFF,inputs,new DigitalHealthCareViewPatientMapper());
+			
+			// Set<String> set=new HashSet<>(viewPatientStaff);
 			 String serviceEndTime=time.getTimeZone();
 			 long result=sessionTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
 			 cisResults.setResultObject(viewPatientStaff);

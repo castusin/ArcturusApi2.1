@@ -26,10 +26,10 @@ public class DigitalHealthCareReferFriendBL {
 	// private static final AtomicInteger count = new AtomicInteger(111101);
 	public CISResults referFriend(DigitalHealthCareReferFriendModel referFriend){
 		
-		final Logger logger = Logger.getLogger(DigitalHealthCareReferFriendBL.class);
+		 final Logger logger = Logger.getLogger(DigitalHealthCareReferFriendBL.class);
 		
-		  EmailCommunication sendMail=new EmailCommunication();
-		  SMSCommunication smsCommunicaiton=new SMSCommunication();
+		 EmailCommunication sendMail=new EmailCommunication();
+		 SMSCommunication smsCommunicaiton=new SMSCommunication();
 		// Capture service Start time
 		 TimeCheck time=new TimeCheck();
 		 testServiceTime seriveTimeCheck=new testServiceTime();
@@ -41,6 +41,9 @@ public class DigitalHealthCareReferFriendBL {
 	     String createDate=time.getTimeZone();
 	     String patientId=referFriend.getPatientId();
 	     String friendEmail=referFriend.getEmailId();
+	     String message=referFriend.getFreeText();
+	     String friendPhone=referFriend.getPhoneNumber();
+	     String friendName=referFriend.getFriendName();
 		 CISResults cisResult = referFriendDAO.referFriend(referFriend.getPatientId(),referFriend.getFamilyMemeberId(),referFriend.getFriendName(),referFriend.getEmailId(),referFriend.getPhoneNumber(),referFriend.getFreeText(),createDate);
 		
 		 if(cisResult.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
@@ -50,8 +53,12 @@ public class DigitalHealthCareReferFriendBL {
 			
 			  DigitalHealthCarePatientModel  patientEmailId=(DigitalHealthCarePatientModel)cisResult.getResultObject();
 			  String  patientEmail=patientEmailId.getEmailId();
-			  String cc= friendEmail ;
-              String bcc= CISConstants.ADMINEMAILID ;
+			  DigitalHealthCarePatientModel  patientFname=(DigitalHealthCarePatientModel)cisResult.getResultObject();
+			  String  patientFirstName=patientFname.getFirstName();
+			  DigitalHealthCarePatientModel  patientLname=(DigitalHealthCarePatientModel)cisResult.getResultObject();
+			  String  patientLastName=patientLname.getLastName();
+			  String cc= CISConstants.EMAILUSERNAME ;
+              String bcc= CISConstants.EMAILUSERNAME ;
              
             // String subject="Your care plan schedule has been deleted.";
              String messageType=CISConstants.RECIEVED;;
@@ -59,7 +66,9 @@ public class DigitalHealthCareReferFriendBL {
             
 			  if(cisResult.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
 			   {
-				  cisResult=sendMail.sendReferFriendMail(patientEmail,cc,bcc);
+				  cisResult=sendMail.sendReferFriendMail(patientFirstName,patientLastName,patientEmail,friendEmail,friendPhone,friendName,message,cc,bcc);
+				  cisResult=sendMail.sendReferFriendMailAdmin(patientFirstName,patientLastName,patientEmail,friendEmail,friendPhone,friendName,message,cc,bcc);
+					 
 			   }
 	      }
 		 
